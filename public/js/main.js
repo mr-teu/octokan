@@ -16,26 +16,21 @@ var agregaNuevo = function (event){
 	nuevo.keydown(agregaNuevo);
 	nuevo.appendTo('#todos');
 	ultimoTODO.unbind('keydown');
-	ultimoTODO.click(mandaADoing);
+	ultimoTODO.click(mandaTareaA('#doings',mandaTareaA('#dones', null)));
 	ultimoTODO = nuevo;
 	
 	nuevo.focus();}
 }; 
 ultimoTODO.keydown(agregaNuevo);
 
+var mandaTareaA = function(columna, onClick){
 
-
-var mandaADoing = function (event){
-    console.log('mandando a doings');
-    $(this).detach()
-	.appendTo('#doings')
+    return function (event) {
+	console.log('mandando a' + columna);
+	$(this).detach()
+	.appendTo(columna)
 	.unbind('click')
-	.click(mandaADone);
+	.bind('click', onClick);
+    };
 };
 
-var mandaADone = function (event){
-    console.log('mandando a done');
-    $(this).detach()
-	.appendTo('#dones')
-	.unbind('click');
-};
