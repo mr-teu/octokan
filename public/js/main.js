@@ -14,15 +14,20 @@ $(document).ready(function() {
 function agregaNuevo(event){
     if(event.which == 13){
 	var ultimoTODO = $(this).parents('.todo-el');
-	var nuevo = ultimoTODO.clone();
+	var nuevo = ultimoTODO.clone(false);
 	nuevo.find('input').keydown(agregaNuevo);
+	nuevo.find('input').val('');
 	nuevo.appendTo('#todos');
 	ultimoTODO.find('input').unbind('keydown');
-	ultimoTODO.find('.btn-success').click(mandaTareaA('#doings',mandaTareaA('#dones', null)));
-	ultimoTODO.find('.btn-danger').click(eliminaElemento);
+	ultimoTODO.find('.btn-success').click(mandaTareaA('#doings',mandaTareaA('#dones', null))).show();
+	ultimoTODO.find('.btn-danger').click(eliminaElemento).show();
+	
 	ultimoTODO = nuevo;
 	
-	nuevo.find('input').focus();}
+	nuevo.find('input').focus();
+	nuevo.find('.btn-success').hide();
+	nuevo.find('.btn-danger').hide();
+    }
 }; 
 
 function mandaTareaA(columna, onClick){
@@ -40,6 +45,10 @@ function eliminaElemento(){
     console.log('Borrando elemento');
     $(this).parents('.todo-el').remove();
 };
+
+function toggleElementButtons(){
+    var todoElement = $(this).parents('todo-el');
+}
 
 
 
