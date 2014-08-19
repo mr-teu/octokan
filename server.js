@@ -2,8 +2,16 @@
 var express = require("express");
 var logfmt = require("logfmt");
 var app = express();
+var pg = require('pg');
 
 app.use(logfmt.requestLogger());
+
+//CONEXION A POSTGRESQL
+//========================================================
+pg.connect(process.env.DATABASE_URL, function(err, client){
+    var sqlCreationQuery = 'CREATE TABLE tarea(id_tarea serial PRIMARY KEY, fecha_creacion timestamp, nombre varchar(100))';
+});
+
 
 // ROUTES DE LA API
 //=========================================================
