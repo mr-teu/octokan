@@ -10,6 +10,7 @@ app.use(logfmt.requestLogger());
 //========================================================
 pg.connect(process.env.DATABASE_URL, function(err, client){
     var sqlCreationQuery = 'CREATE TABLE tarea(id_tarea serial PRIMARY KEY, fecha_creacion timestamp, nombre varchar(100))';
+    client.query(sqlCreationQuery);
 });
 
 
