@@ -27,7 +27,7 @@ apiRouter.route('/tareas')
 
 //middleware to be used in all requests
 // here one can add analytics, etc..
-router.use(function(req,res,next){
+apiRouter.use(function(req,res,next){
     console.log('API being accesed');
     next(); //remember this is middleware; this calls the next routes
 });
