@@ -8,10 +8,11 @@ app.use(logfmt.requestLogger());
 
 //CONEXION A POSTGRESQL
 //========================================================
-//pg.connect(process.env.DATABASE_URL, function(err, client){
+pg.connect(process.env.DATABASE_URL, function(err, client){
+    console.log('Connecting to database');
     //    var sqlCreationQuery = 'CREATE TABLE tarea(id_tarea serial PRIMARY KEY, fecha_creacion timestamp, nombre varchar(100))';
     //  client.query(sqlCreationQuery);
-//});
+});
 
 
 // ROUTES DE LA API
