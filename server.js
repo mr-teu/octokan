@@ -8,10 +8,10 @@ app.use(logfmt.requestLogger());
 
 //CONEXION A POSTGRESQL
 //========================================================
-pg.connect(process.env.DATABASE_URL, function(err, client){
-    var sqlCreationQuery = 'CREATE TABLE tarea(id_tarea serial PRIMARY KEY, fecha_creacion timestamp, nombre varchar(100))';
-    client.query(sqlCreationQuery);
-});
+//pg.connect(process.env.DATABASE_URL, function(err, client){
+    //    var sqlCreationQuery = 'CREATE TABLE tarea(id_tarea serial PRIMARY KEY, fecha_creacion timestamp, nombre varchar(100))';
+    //  client.query(sqlCreationQuery);
+//});
 
 
 // ROUTES DE LA API
@@ -25,12 +25,12 @@ apiRouter.get('/', function(req, res){
 apiRouter.route('/tareas')
     // crea nueva tarea accesada en POST /api/tareas
     .post(function(req,res){
-	//crea nueva tarea
+	var sqlInsertionStr = '';
     })
 
 // jala todas las tareas
     .get(function(req,res){
-	
+	console.log('ahuevo');
     })
 ;
 
