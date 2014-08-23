@@ -2,18 +2,12 @@
 var express = require("express");
 var logfmt = require("logfmt");
 var app = express();
-var pg = require('pg');
+var pg = require("pg");
 
 app.use(logfmt.requestLogger());
 
 //CONEXION A POSTGRESQL
 //========================================================
-pg.connect(process.env.DATABASE_URL, function(err, client){
-    console.log('Connecting to database');
-    //    var sqlCreationQuery = 'CREATE TABLE tarea(id_tarea serial PRIMARY KEY, fecha_creacion timestamp, nombre varchar(100))';
-    //  client.query(sqlCreationQuery);
-});
-
 
 // ROUTES DE LA API
 //=========================================================
@@ -24,9 +18,14 @@ apiRouter.get('/', function(req, res){
 });
 
 apiRouter.route('/tareas')
-    // crea nueva tarea accesada en POST /api/tareas
+// crea nueva tarea accesada en POST /api/tareas
     .post(function(req,res){
-	var sqlInsertionStr = '';
+	pg.connect(process.env.DATABASE_URL, function(err, client){
+	    console.log('Connecting to database');
+	    //var sqlCreationQuery = 'CREATE TABLE tarea(id_tarea serial PRIMARY KEY, fecha_creacion timestamp, nombre varchar(100))';
+	   client.query('');
+});
+
     })
 
 // jala todas las tareas
