@@ -64,23 +64,35 @@
 
       <div class="row">
 	<!-- To Do ---->
-        <div class="col-lg-4 text-center">
+        <div id="todos" class="col-lg-4 text-center">
           <h1>To Do</h1>
-          
-	    <input type="text" class="todo-el form-control" />
-	 
-	  <button type="button" id="agrega" class="btn btn-primary">+</button>
-        </div>
-	<div class="col-lg-4">
-          <h1>Doing</h1>
-	  <input type="text" class="doing-el form-control" />
-	  <button type="button" class="btn btn-primary">+</button>
+	  <div class="form-horizontal todo-el" role="form">
+	    <div class="form-group">
+	      <div class="col-sm-9">
+		<input type="text" class="form-control" />
+	      </div>
+	      <div class="col-sm-1">
+		<button type="button" class="btn btn-danger">
+		  <span class="glyphicon glyphicon-remove-circle"></span>
+		</button>
+	      </div>
+	      <div class="col-sm-1">
+		<button type="button" class="btn btn-success">
+		  <span class="glyphicon glyphicon-arrow-right"></span>
+		</button>
+	      </div>
+	    </div>
+	    
+	    
+	  </div>
+	  
 	  
         </div>
-	<div class="col-lg-4 text-center">
+	<div id="doings" class="col-lg-4 text-center">
+          <h1>Doing</h1>
+        </div>
+	<div id="dones"class="col-lg-4 text-center">
           <h1>Done</h1>
-          <input type="text" class="doing-el form-control" />
-	  <button type="button" class="btn btn-primary">+</button>
         </div>
       </div>
       <!-- /.row -->
