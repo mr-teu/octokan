@@ -6,7 +6,8 @@
     "dependencies": {
 	"express": "~4.8.1",
 	"logfmt": "~1.1.2",
-	"pg": "3.x"
+	"pg": "3.x",
+	"body-parser": "1.6.5"
     },
     "scripts": {
 	"start": "node server.js"
